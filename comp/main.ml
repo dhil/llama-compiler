@@ -8,13 +8,13 @@ module Examples = struct
         papp plus [var x; var y])))
 
 
-  let two_plus_three =
+  let two_plus_forty =
     (app
        (app add (int 2))
-       (int 3))
+       (int 40))
 
-  let print_two_plus_three =
-    (papp print_int [two_plus_three])
+  let print_two_plus_forty =
+    (papp print_int [two_plus_forty])
 
 end
 
@@ -23,7 +23,7 @@ let _ =
   let comp_env = Backend.initial_env () in
   let module_ident = Ident.create_persistent "Llama_Program" in
   let module Transl = Translate.Transl(LambdaIr.LambdaWrapper) in
-  let lambda = Transl.translate_program module_ident comp_env Examples.print_two_plus_three in
+  let lambda = Transl.translate_program module_ident comp_env Examples.print_two_plus_forty in
   try
     Backend.compile module_ident lambda "a.out"
   with
