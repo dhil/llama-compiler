@@ -1,0 +1,9 @@
+(jbuild_version 1)
+
+(executable
+ ((name main)
+  (public_name llamac)
+  (package llamac)
+  (modes (byte native))
+  (flags (:standard -safe-string -dtypes -w Ae-44-45-60 -g))
+  (libraries (compiler-libs.optcomp))))
