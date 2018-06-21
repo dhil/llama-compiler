@@ -25,4 +25,15 @@ The only defined behaviour is that all behaviour is undefined.
 
 ## Compilation pipeline
 
+Most of the source code for the compiler is contained within the directory `comp`
+
+* `syntax.ml` is the abstract syntax of Llama along with some convenient functions for writing Llama examples
+* `lambdaIr.ml` is a thin wrapper around the `lambda.ml` module in the OCaml backend
+* `translate.ml` translates Llama abstract syntax to that of OCaml's Lambda; the module is parameterised by a `LambdaIr.LambdaWrapper`
+* `backend.ml` constructs the code generator by cherry picking existing parts of the OCaml backend infrastructure
+* `main.ml` is the main entry point for the executable
+* `utils.ml` contains a few convenient utilities
+
+The root of the repository contains the module `llama_Builtins.ml` and its signature file. This file provides definitions for the Llama primitives that require more than one Lambda primitive instruction to implement.
+
 **DOCUMENTATION TO BE COMPLETED**
