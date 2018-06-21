@@ -1,21 +1,28 @@
 # Llama Compiler -- a functional compiler (mostly) for free
 
-The Llama compiler is a compiler for a small untyped lambda calculus endowed with integers and primitives for adding integers and printing integers. The compiler is realised mostly for free by utilising the native compilation pipeline of the OCaml compiler.
+The Llama compiler is a compiler for a small untyped lambda calculus endowed with integers and primitives for adding integers and printing integers. The construction of this compiler is mostly for free as it interfaces directly with the backend of the OCaml compiler and takes advantage of its native compilation pipeline. Although, this compiler only supports x86, it could with little effort support multiple architectures simultaneous, and with a bit more effort it could even support cross-platform compilation. Since the compiler interfaces directly with the OCaml compiler tool-chain it can in principle do whatever the OCaml compiler tool-chain can do.
 
 This project is intended to serve as an illustrative example of how to build a compiler by interfacing with the OCaml backend.
 
 ## Abstract syntax
 
-The Llama language is essentially the untyped lambda calculus with integers and a few operations on integers.
+The Llama language is itself not terribly exciting; it is essentially the untyped lambda calculus with integers and a few operations on integers.
 ```
 M, N ::= Int i           (* integers *)
        | Var x           (* variables *)
        | Abs (x, M)      (* \x.M *)
        | App (M, N)      (* M N *)
        | PrimApp (P, N*) (* primitive N* *)
+
 P ::= Plus
     | Print_int
 ```
 For convenience the abstract syntax differentiates applications of non-primitive terms and primitive terms. Note, primitive application is n-ary, whilst regular application is unary.
+
+## Semantics
+
+The only defined behaviour is that all behaviour is undefined.
+
+## Compilation pipeline
 
 **DOCUMENTATION TO BE COMPLETED**
