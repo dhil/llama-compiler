@@ -16,6 +16,6 @@ build: [
 ]
 
 depends: [
-  "jbuilder" {build}
+  "dune" {build}
   "ppx_deriving"
 ]
